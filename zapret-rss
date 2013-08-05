@@ -12,10 +12,9 @@ reestr_json = open("test.json").read()
 parsed=json.loads(reestr_json)
 
 rss = PyRSS2Gen.RSS2(
-    title = "Andrew's PyRSS2Gen feed",
-    link = "http://www.dalkescientific.com/Python/PyRSS2Gen.html",
-    description = "The latest news about PyRSS2Gen, a "
-                  "Python library for generating RSS2 feeds",
+    title = u"Свежие запрещённые сайты",
+    link = "http://antizapret.info/",
+    description = u"Свежие запрещённые сайты. Предназначено исключительно для мониторинга Реестра запрещенных сайтов, не является каталогом. Ограничение по возрасту - 18+",
 
     lastBuildDate = datetime.datetime.now(),
 
@@ -26,10 +25,21 @@ for item in parsed['register']:
     # print item['url']
     rss_item = PyRSS2Gen.RSSItem(
          title = item['url'],
-         link = item['url'],
-         description = u"свежак: %s, добавил %s" % (item['url'], item['org']),
+         link = item['proof'],
+         description = u"""<p><b>url:</b> <a href='%s'>%s</a>
+            <p><b>домен: <a href='%s'>%s</a>
+            <p><b>ip:</b> <a href='http://%s'>%s</a>
+            <p><b>добавил информацию:</b> %s %s, приказ %s
+            <p><b>включен в реестр:</b> %s
+            """ % (item['url'], item['url'],
+             item['url'], item['url'],
+             item['ip'], item['ip'],
+             item['rsocDate'], item['org'], item['org_act'],
+             item['includeTime']
+             ),
          guid = PyRSS2Gen.Guid(item['proof']),
-         pubDate = datetime.datetime(2003, 9, 6, 21, 31))
+         pubDate = item['includeTime']
+         )
 
     rss.items.append(rss_item)
 
