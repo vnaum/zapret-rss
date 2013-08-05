@@ -26,7 +26,7 @@ for item in parsed['register']:
          title = item['url'],
          link = item['proof'],
          description = u"""<p><b>url:</b> <a href='%s'>%s</a>
-            <p><b>домен: <a href='%s'>%s</a>
+            <p><b>домен: <a href='http://%s'>%s</a>
             <p><b>ip:</b> <a href='http://%s'>%s</a>
             <p><b>добавил информацию:</b> %s %s, приказ %s
             <p><b>включен в реестр:</b> %s
