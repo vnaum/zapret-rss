@@ -32,7 +32,7 @@ for item in parsed['register']:
             <p><b>добавил информацию:</b> %s %s, приказ %s
             <p><b>включен в реестр:</b> %s
             """ % (item['url'], item['url'],
-             item['url'], item['url'],
+             item['domain'], item['domain'],
              item['ip'], item['ip'],
              item['rsocDate'], item['org'], item['org_act'],
              item['includeTime']
@@ -43,4 +43,4 @@ for item in parsed['register']:
 
     rss.items.append(rss_item)
 
-rss.write_xml(open("pyrss2gen.xml", "w"))
+print rss.to_xml
