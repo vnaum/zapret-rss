@@ -4,10 +4,9 @@ import datetime
 import PyRSS2Gen
 import json
 import urllib2
-import sys
 
 reestr_json = urllib2.urlopen('http://api.antizapret.info/all.php?type=json').read()
-reestr_json = open("test.json").read()
+# reestr_json = open("test.json").read()
 
 parsed=json.loads(reestr_json)
 
