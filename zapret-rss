@@ -42,4 +42,4 @@ for item in parsed['register']:
 
     rss.items.append(rss_item)
 
-print rss.to_xml
+print rss.to_xml("utf-8")
