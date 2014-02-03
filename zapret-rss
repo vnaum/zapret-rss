@@ -20,7 +20,7 @@ rss = PyRSS2Gen.RSS2(
     items = []
     )
 
-for item in parsed['register']:
+for item in parsed['register'][:100]:
     # print item['url']
     rss_item = PyRSS2Gen.RSSItem(
          title = item['url'],
